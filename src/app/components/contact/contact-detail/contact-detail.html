@@ -1,119 +1,178 @@
 <div class="contact">
   <form name="contactDetailForm" novalidate>
-    <div><span class="contact__requried">*</span>Field is required</div>
+    <div>
+      <span class="contact__required">*</span> field is required
+    </div>
     <div class="contact__box">
       <h3 class="contact__sub-title">
         Personal
       </h3>
-
       <div class="contact__field">
         <label>
           Name <span class="contact__required">*</span>
         </label>
-        <input 
+        <input
           type="text"
           name="name"
           required="required"
+          ng-change="$ctrl.updateContact();"
+          ng-model-options="{
+            'updateOn': 'default blur',
+            'debounce': {
+              'default': 250,
+              'blur': 0
+            }
+          }"
           ng-model="$ctrl.contact.name">
       </div>
-
       <div class="contact__field">
         <label>
           Email
-          <span 
-            class="contact__error"
-            ng-if="contactDetailForm.email.$error.email">
+          <span class="contact__error" ng-if="contactDetailForm.email.$error.email">
             Must be a valid email
           </span>
         </label>
-        <input 
+        <input
           type="email"
-          name="email"    
+          name="email"
+          ng-change="$ctrl.updateContact();"
+          ng-model-options="{
+            'updateOn': 'default blur',
+            'debounce': {
+              'default': 250,
+              'blur': 0
+            }
+          }"
           ng-model="$ctrl.contact.email">
       </div>
-
       <div class="contact__field">
         <label>
-          Job Title
+          Job title
         </label>
-        <input 
+        <input
           type="text"
-          name="jobTitle"    
+          name="jobTitle"
+          ng-change="$ctrl.updateContact();"
+          ng-model-options="{
+            'updateOn': 'default blur',
+            'debounce': {
+              'default': 250,
+              'blur': 0
+            }
+          }"
           ng-model="$ctrl.contact.job">
       </div>
-
       <div class="contact__field">
         <label>
           Location
         </label>
-        <input 
+        <input
           type="text"
-          name="location"    
+          name="location"
+          ng-change="$ctrl.updateContact();"
+          ng-model-options="{
+            'updateOn': 'default blur',
+            'debounce': {
+              'default': 250,
+              'blur': 0
+            }
+          }"
           ng-model="$ctrl.contact.location">
       </div>
     </div>
-
     <div class="contact__box contact__box--no-margin">
       <h3 class="contact__sub-title">
         Social
       </h3>
-
       <div class="contact__field">
         <label>
           Facebook
         </label>
-        <input 
+        <input
           type="text"
-          name="facebook"    
+          name="facebook"
+          ng-change="$ctrl.updateContact();"
+          ng-model-options="{
+            'updateOn': 'default blur',
+            'debounce': {
+              'default': 250,
+              'blur': 0
+            }
+          }"
           ng-model="$ctrl.contact.social.facebook">
       </div>
-
       <div class="contact__field">
         <label>
-          Github
+          GitHub
         </label>
-        <input 
+        <input
           type="text"
-          name="github"    
+          name="github"
+          ng-change="$ctrl.updateContact();"
+          ng-model-options="{
+            'updateOn': 'default blur',
+            'debounce': {
+              'default': 250,
+              'blur': 0
+            }
+          }"
           ng-model="$ctrl.contact.social.github">
       </div>
-
       <div class="contact__field">
         <label>
           Twitter
         </label>
-        <input 
+        <input
           type="text"
-          name="twitter"    
+          name="twitter"
+          ng-change="$ctrl.updateContact();"
+          ng-model-options="{
+            'updateOn': 'default blur',
+            'debounce': {
+              'default': 250,
+              'blur': 0
+            }
+          }"
           ng-model="$ctrl.contact.social.twitter">
       </div>
-
       <div class="contact__field">
         <label>
-          Linkedin
+          LinkedIn
         </label>
-        <input 
+        <input
           type="text"
-          name="linkedin"    
+          name="linkedin"
+          ng-change="$ctrl.updateContact();"
+          ng-model-options="{
+            'updateOn': 'default blur',
+            'debounce': {
+              'default': 250,
+              'blur': 0
+            }
+          }"
           ng-model="$ctrl.contact.social.linkedin">
       </div>
     </div>
-  </div>
 
-  <div ng-if="$ctrl.isNewContact">
-    <button
-      ng-disabled="contactDetailForm.$invalid"
-      ng-click="$ctrl.saveContact();">
-      Create contact
-    </button>
-  </div>
-  <div ng-if="!$ctrl.isNewContact">
-    <button
-      class="delete"
-      ng-click="$ctrl.deleteContact();">
-      Delete contact
-    </button>
-  </div>
+    <contact-tag
+      tag="$ctrl.contact.tag"
+      on-change="$ctrl.tagChange($event);">
+    </contact-tag>
+
+    <div ng-if="$ctrl.isNewContact">
+      <button
+        ng-disabled="contactDetailForm.$invalid"
+        ng-click="$ctrl.saveContact();">
+        Create contact
+      </button>
+    </div>
+    <div ng-if="!$ctrl.isNewContact">
+      <button
+        class="delete"
+        ng-click="$ctrl.deleteContact();">
+        Delete contact
+      </button>
+    </div>
 
   </form>
 </div>

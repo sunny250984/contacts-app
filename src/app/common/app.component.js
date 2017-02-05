@@ -1,19 +1,19 @@
 const app = {
   templateUrl: './app.html',
-  controller: 'AppController'
+  controller: 'AppController',
 };
 
 angular
   .module('common')
   .component('app', app)
-  .config(function ($stateProvider) {
+  .config(($stateProvider) => {
     $stateProvider
       .state('app', {
-        // redirectTo: 'contacts',
+        redirectTo: 'contacts',
         url: '/app',
         data: {
-          requiredAuth: true
+          requiredAuth: true,
         },
-        component: 'app'
+        component: 'app',
       });
   });
