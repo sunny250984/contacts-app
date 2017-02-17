@@ -12,8 +12,9 @@
       class="sidebar__item"
       ng-repeat="item in ::$ctrl.contactTags">
       <a 
-        href="" 
-        class="sidebar__link">
+        class="sidebar__link"
+        ui-sref="contacts({filter: item.state })"
+        ui-sref-active-eq="sidebar__link--active">
           <i class="material-icons">{{ ::item.icon }}</i>
           {{ ::item.label }}
       </a>
