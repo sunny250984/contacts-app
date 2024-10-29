@@ -8,7 +8,7 @@ See -> [Ultimate Angular](https://ultimateangular.com) for a full list of availa
 [Firebase Rules](#firebase-rules) |
 [Resources](#resources)
 
-----
+---- 
 
 ## Setup and install
 
